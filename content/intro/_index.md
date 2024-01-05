@@ -16,7 +16,7 @@ This website is produced with [Zola](https://www.getzola.org/), a static site ge
 JavaScript programs are produced using the [p5.js](https://p5js.org/) library made by the [Processing Foundation](https://processingfoundation.org/).
 
 Extentions to that library include:
-* [p5.SVG](https://zenozeng.github.io/p5.js-svg/) by Zenozang and contributors.
+* [p5.SVG](https://zenozeng.github.io/p5.js-svg/) by Zenozeng and contributors.
 * [p5.play](https://p5play.org/) by Quinton Ashley and contributors.
 
 ### Copyright
