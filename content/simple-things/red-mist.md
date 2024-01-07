@@ -10,13 +10,12 @@ weight = 2
 <script>
 
 /*
- * Title:   Processing Sketch No. 2
+ * Title:   Red Mist
  * Author:  hamzberg
- * Version: 1.0
+ * Version: 0.1
  * Date:    22 December 2023
- * License: All rights reserved.
  *
- * Description:
+ * Notes:
  *   -
  */
 
@@ -83,3 +82,58 @@ function draw() {
 
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
+
+<hr>
+
+## Description
+
+Uses a custom 'dot' object to create a loop of 100 dots of different sizes placed randomly in the canvas. Based on the lecture by [Bernat Ferragut](https://ga-course.surge.sh/).
+
+## Instructions
+
+"There is nothing that we can do."
+
+## Code Sample
+
+```JavaScript
+class dot {
+  constructor(x_pos, y_pos, size) {
+    this.x_pos = x_pos | 0;
+    this.y_pos = y_pos | 0;
+    this.size = size | 0;
+  }
+
+  blue_mode() {
+    noStroke();
+    fill('blue');
+    ellipse(this.x_pos, this.y_pos, this.size);
+  }
+
+  red_mode() {
+    noStroke();
+    fill('red');
+    ellipse(this.x_pos, this.y_pos, this.size);
+  }
+}
+
+function setup() {
+    frameRate(5);
+}
+
+function draw() {
+  background(220);
+
+  let dot_one = new dot(240, 240, 50);
+  dot_one.blue_mode();
+
+  let dot_too = new dot(140, 140, 150);
+  dot_too.red_mode();
+
+  for(let i = 0; i < 100; i+=1 ) {
+    new dot(random(0, width), random(0, height), random(1, 100)).red_mode();
+  }
+}
+```
+## Thoughts
+
+This helped me understand Object Oriented Programming better.

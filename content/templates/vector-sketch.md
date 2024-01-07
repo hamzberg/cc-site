@@ -1,6 +1,6 @@
 +++
-title = "Random Fracturing"
-weight = 3
+title = "Vector Sketch"
+weight = 1
 +++
 
 <!-- Load the Library -->
@@ -16,29 +16,14 @@ weight = 3
  * Version: 0.0
  * Date:    11 December 2024
  *
- * Description:
+ * Notes:
  *   -
  */
 
 function setup() {
     let c = createCanvas(600, 300, SVG);
     c.parent('processing-canvas');
-
-    noStroke();
-    fill('red');
-
-    for(let x_pos = 0; x_pos < 1000; x_pos += 10) {
-
-        for(let y_pos = 0; y_pos < 1000; y_pos +=10) {
-
-            rect(x_pos, y_pos, random(0, 15), random(0, 15));
-
-        }
-
-    }
-
 }
-
 
 function draw() {
 
@@ -61,13 +46,36 @@ function exportSVG() {
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
 
-```JavaScript
-    noStroke();
-    fill('red');
+<hr>
 
-    for(let x_pos = 0; x_pos < 1000; x_pos += 10) {
-        for(let y_pos = 0; y_pos < 1000; y_pos +=10) {
-            rect(x_pos, y_pos, random(0, 15), random(0, 15));
-        }
+## Description
+
+This page contains code to be used with starting a new creative code project.
+
+## Instructions
+
+Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+
+## Code Sample
+
+```JavaScript
+function setup() {
+    let c = createCanvas(600, 300, SVG);
+    c.parent('processing-canvas');
+}
+
+function draw() {
+    exportSVG();
+}
+
+function exportSVG() {
+    if (keyCode === LEFT_ARROW) {
+        save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+        print("SVG Downloaded");
+        noLoop();
     }
+}
 ```
+## Thoughts
+
+"Head empty."

@@ -1,6 +1,6 @@
 # The URL the site will be built for
-base_url = "https://hamzberg.org"
-title = "hamzberg | Digital Sketchbook"
+base_url = "https://hamzbergcode.neocities.org"
+title = "Digital Sketchbook"
 description = "Learning JavaScript-based creative coding language to make some nifty stuff."
 
 # Whether to automatically compile all Sass files in the sass directory

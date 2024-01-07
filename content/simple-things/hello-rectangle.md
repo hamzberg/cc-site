@@ -10,11 +10,10 @@ weight = 1
 <script>
 
 /*
- * Title:   Processing Sketch No. 1
+ * Title:   Hello Rectangle
  * Author:  hamzberg
- * Version: 1.0
+ * Version: 0.1
  * Date:    29 September 2023
- * License: All rights reserved.
  *
  * Description:
  *   -
@@ -40,4 +39,25 @@ function draw() {
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
 
-Obligatory greeting of the omnipresent rectangle.
+<hr>
+
+## Description
+
+A vertical black rectangle and horizontal red rectangle rest on the canvas.
+
+## Instructions
+
+"At ease, soldier."
+
+## Code Sample
+
+```JavaScript
+    fill("black");
+    rect(50,50,100,200);
+
+    fill("red");
+    rect(250,100,300,100);
+```
+## Thoughts
+
+Obligatory greeting of the omnipresent rectangles.
