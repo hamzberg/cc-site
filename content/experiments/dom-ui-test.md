@@ -1,6 +1,6 @@
 +++
-title = "Vector Sketch"
-weight = 1
+title = "DOM UI Test"
+weight = 3
 +++
 
 <!-- Load the Library -->
@@ -14,7 +14,7 @@ weight = 1
  * Title:   Processing Sketch No. #
  * Author:  hamzberg
  * Version: 0.0
- * Date:    11 December 2024
+ * Date:    15 January 2024
  *
  * Notes:
  *   -
@@ -29,9 +29,17 @@ function setup() {
 
 function draw() {
 
+    //clear();
+
+    fill('red');
+    noStroke();
+
     if(fuse == true){
 
+        rect(random(0, width), random(0, height), 100, 100);
+
         fuse = false;
+
     }
 
 }
@@ -63,38 +71,18 @@ function exportSVG() {
 
 ## Description
 
-This page contains code to be used with starting a new creative code project.
+This experiment uses the HTML DOM to interact with the sketch.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```JavaScript
-let fuse = true;
-
-function setup() {
-    let c = createCanvas(600, 300, SVG);
-    c.parent('processing-canvas');
-}
-
-function draw() {
-    if(fuse == true){
-        fuse = false;
-    }
-}
-
-function fuseTrigger() {
-    clear();
-    fuse = true;
-}
-
-function exportSVG() {
-    save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-    print("SVG Downloaded");
-}
+rect(random(0, width), random(0, height), 100, 100);
 ```
 ## Thoughts
 
-"Head empty."
+I thought I had to use p5.js' [Instance Mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode) in order to get this to work
+but then realized that I could just use the HTML DOM since the sketch is in 'Global Mode.'

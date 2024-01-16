@@ -1,6 +1,6 @@
 +++
 title = "A and B"
-weight = 1
+weight = 6
 +++
 
 <!-- Load the Library -->
