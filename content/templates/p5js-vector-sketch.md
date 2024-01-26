@@ -1,5 +1,5 @@
 +++
-title = "Vector Sketch"
+title = "p5JS Vector Sketch"
 weight = 1
 +++
 
@@ -69,32 +69,10 @@ This page contains code to be used with starting a new creative code project.
 
 Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
 
-## Code Sample
+## Code Source
 
-```JavaScript
-let fuse = true;
+The code for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
-function setup() {
-    let c = createCanvas(600, 300, SVG);
-    c.parent('processing-canvas');
-}
-
-function draw() {
-    if(fuse == true){
-        fuse = false;
-    }
-}
-
-function fuseTrigger() {
-    clear();
-    fuse = true;
-}
-
-function exportSVG() {
-    save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-    print("SVG Downloaded");
-}
-```
 ## Thoughts
 
 "Head empty."

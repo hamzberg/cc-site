@@ -1,6 +1,6 @@
 +++
-title = "Vector Sketches"
-weight = 4
+title = "PaperJS Vector Sketches"
+weight = 5
 sort_by = "weight"
 insert_anchor_links = "right"
 +++
