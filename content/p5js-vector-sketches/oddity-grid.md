@@ -192,38 +192,148 @@ function exportSVG() {
 
 ## Description
 
-This page contains code to be used with starting a new creative code project.
+Generates a grid of pictographs from a set of tiles.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```JavaScript
-let fuse = true;
-
 function setup() {
-    let c = createCanvas(600, 300, SVG);
-    c.parent('processing-canvas');
+    noFill();
 }
 
 function draw() {
-    if(fuse == true){
-        fuse = false;
+
+        let scale = 50;
+
+        for (let x_Position = 0; x_Position < width; x_Position += scale) {
+            for (let y_Position = 0; y_Position < height; y_Position += scale) {
+               switch(random([1, 2, 3, 4])) {
+                    case 1:
+                        makeTileOne(x_Position, y_Position, 1);
+                        break;
+                    case 2:
+                        makeTileTwo(x_Position, y_Position, 1);
+                        break;
+                    case 3:
+                        makeTileThree(x_Position, y_Position, 1);
+                        break;
+                    case 4:
+                        makeTileFour(x_Position, y_Position, 1);
+                        break;
+               }
+          }
+     }
+}
+
+function makeTileOne(x_Position, y_Position, scale) {
+
+    x_Position /= scale;
+    y_Position /= scale;
+
+    // Vertical
+    line((10 + x_Position) * scale, (0 + y_Position) * scale,
+         (10 + x_Position) * scale, (50 + y_Position) * scale);
+    line((20 + x_Position) * scale, (0 + y_Position) * scale,
+         (20 + x_Position) * scale, (50 + y_Position) * scale);
+    line((30 + x_Position) * scale, (0 + y_Position) * scale,
+         (30 + x_Position) * scale, (50 + y_Position) * scale);
+    line((40 + x_Position) * scale, (0 + y_Position) * scale,
+         (40 + x_Position) * scale, (50 + y_Position) * scale);
+    line((50 + x_Position) * scale, (0 + y_Position) * scale,
+         (50 + x_Position) * scale, (50 + y_Position) * scale);
+
+    // Horizontal
+    line((0 + x_Position) * scale, (10 + y_Position) * scale,
+         (50 + x_Position) * scale, (10 + y_Position) * scale);
+    line((0 + x_Position) * scale, (20 + y_Position) * scale,
+         (50 + x_Position) * scale, (20 + y_Position) * scale);
+    line((0 + x_Position) * scale, (30 + y_Position) * scale,
+         (50 + x_Position) * scale, (30 + y_Position) * scale);
+    line((0 + x_Position) * scale, (40 + y_Position) * scale,
+         (50 + x_Position) * scale, (40 + y_Position) * scale);
+    line((0 + x_Position) * scale, (50 + y_Position) * scale,
+         (50 + x_Position) * scale, (50 + y_Position) * scale);
+
+}
+
+function makeTileTwo(x_Position, y_Position, scale) {
+
+    x_Position /= scale;
+    y_Position /= scale;
+
+    for(let x_Position_Local = 5; x_Position_Local <= 50; x_Position_Local += 10){
+        for(let y_Position_Local = 5; y_Position_Local <= 50; y_Position_Local += 10){
+            circle((x_Position_Local + x_Position) * scale, (y_Position_Local + y_Position) * scale, 10);
+        }
     }
+
 }
 
-function fuseTrigger() {
-    clear();
-    fuse = true;
+function makeTileThree(x_Position, y_Position, scale){
+
+    arc((50 + x_Position) * scale, (50 + y_Position) * scale, 100, 100, PI, PI + HALF_PI, OPEN);
+    arc((50 + x_Position) * scale, (50 + y_Position) * scale, 80, 80, PI, PI + HALF_PI, OPEN);
+    arc((50 + x_Position) * scale, (50 + y_Position) * scale, 60, 60, PI, PI + HALF_PI, OPEN);
+    arc((50 + x_Position) * scale, (50 + y_Position) * scale, 40, 40, PI, PI + HALF_PI, OPEN);
+    arc((50 + x_Position) * scale, (50 + y_Position) * scale, 20, 20, PI, PI + HALF_PI, OPEN);
+
 }
 
-function exportSVG() {
-    save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-    print("SVG Downloaded");
+function makeTileFour(x_Position, y_Position, scale) {
+
+    x_Position /= scale;
+    y_Position /= scale;
+
+    // Vertical
+    line((5 + x_Position) * scale, (0 + y_Position) * scale,
+         (5 + x_Position) * scale, (50 + y_Position) * scale);
+    line((10 + x_Position) * scale, (0 + y_Position) * scale,
+         (10 + x_Position) * scale, (50 + y_Position) * scale);
+    line((15 + x_Position) * scale, (0 + y_Position) * scale,
+         (15 + x_Position) * scale, (50 + y_Position) * scale);
+    line((20 + x_Position) * scale, (0 + y_Position) * scale,
+         (20 + x_Position) * scale, (50 + y_Position) * scale);
+    line((25 + x_Position) * scale, (0 + y_Position) * scale,
+         (25 + x_Position) * scale, (50 + y_Position) * scale);
+    line((30 + x_Position) * scale, (0 + y_Position) * scale,
+         (30 + x_Position) * scale, (50 + y_Position) * scale);
+    line((35 + x_Position) * scale, (0 + y_Position) * scale,
+         (35 + x_Position) * scale, (50 + y_Position) * scale);
+    line((40 + x_Position) * scale, (0 + y_Position) * scale,
+         (40 + x_Position) * scale, (50 + y_Position) * scale);
+    line((45 + x_Position) * scale, (0 + y_Position) * scale,
+         (45 + x_Position) * scale, (50 + y_Position) * scale);
+    line((50 + x_Position) * scale, (0 + y_Position) * scale,
+         (50 + x_Position) * scale, (50 + y_Position) * scale);
+
+    // Horizontal
+    line((0 + x_Position) * scale, (5 + y_Position) * scale,
+         (50 + x_Position) * scale, (5 + y_Position) * scale);
+    line((0 + x_Position) * scale, (10 + y_Position) * scale,
+         (50 + x_Position) * scale, (10 + y_Position) * scale);
+    line((0 + x_Position) * scale, (15 + y_Position) * scale,
+         (50 + x_Position) * scale, (15 + y_Position) * scale);
+    line((0 + x_Position) * scale, (20 + y_Position) * scale,
+         (50 + x_Position) * scale, (20 + y_Position) * scale);
+    line((0 + x_Position) * scale, (25 + y_Position) * scale,
+         (50 + x_Position) * scale, (25 + y_Position) * scale);
+    line((0 + x_Position) * scale, (30 + y_Position) * scale,
+         (50 + x_Position) * scale, (30 + y_Position) * scale);
+    line((0 + x_Position) * scale, (35 + y_Position) * scale,
+         (50 + x_Position) * scale, (35 + y_Position) * scale);
+    line((0 + x_Position) * scale, (40 + y_Position) * scale,
+         (50 + x_Position) * scale, (40 + y_Position) * scale);
+    line((0 + x_Position) * scale, (45 + y_Position) * scale,
+         (50 + x_Position) * scale, (45 + y_Position) * scale);
+    line((0 + x_Position) * scale, (50 + y_Position) * scale,
+         (50 + x_Position) * scale, (50 + y_Position) * scale);
+
 }
 ```
 ## Thoughts
 
-"Head empty."
+Yeah, I could've condensed these functions with for loops.
