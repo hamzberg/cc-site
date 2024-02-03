@@ -58,6 +58,8 @@ A vertical black rectangle and horizontal red rectangle rest on the canvas.
     fill("red");
     rect(250,100,300,100);
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 Obligatory greeting of the omnipresent rectangles.

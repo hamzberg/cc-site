@@ -9,7 +9,7 @@ insert_anchor_links = "right"
 
 As an extention to [hamzberg](https://hamzberg.org/), this website represents an exploration into creative coding through web technologies.
 
-The source code for this website can be viewed on [github](https://github.com/hamzberg/cc-site).
+*The source code for this website can be viewed on [github](https://github.com/hamzberg/cc-site).*
 
 ## Credits
 
@@ -29,3 +29,5 @@ Other programs are produced with [Godot](https://godotengine.org/), made by the 
 JavaScript programs (e.g. creative code sketches) created and published by hamzberg on this website are licensed under the [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
 
 Programs made with Godot are not open to be licensed.
+
+*Copyright hamzberg 2023-2024.*

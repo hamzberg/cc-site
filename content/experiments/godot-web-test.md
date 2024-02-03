@@ -1,6 +1,6 @@
 +++
 title = "Godot Web Test"
-weight = 4
+weight = 2
 +++
 
 <!-- Load the Sketch -->

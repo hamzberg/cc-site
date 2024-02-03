@@ -1,6 +1,6 @@
 +++
-title = "PaperJS Vector Sketch"
-weight = 1
+title = "Octagon Hilltops"
+weight = 8
 +++
 
 <style>
@@ -56,14 +56,36 @@ button:active {
 <script type = "text/paperscript" canvas = "paper-canvas">
 
 /*
- * Title:   PaperJS Sketch No. #
+ * Title:   Octagon Hilltops
  * Author:  hamzberg
- * Version: 0.0
+ * Version: 0.1
  * Date:    1 January 2024
  *
  * Description:
  *   -
  */
+
+for (var y_pos = 1; y_pos < 1000; y_pos += 150) {
+
+   for (var x_pos = 1; x_pos < 1000; x_pos += 150) {
+
+      for (var i = 1; i < 10; i+= 1) {
+
+         new Path.RegularPolygon({
+
+            center: [x_pos + (i * 2), y_pos + (i * 2)],
+            sides: 8,
+            radius: 30 * (i / 4),
+            strokeColor: 'black',
+            strokeWidth: 2
+
+         });
+
+      }
+
+   }
+
+}
 
 // Function to export SVG
 function exportSVG() {
@@ -79,7 +101,7 @@ function exportSVG() {
     // Create a download link and trigger the click event:
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = "temp_" + currentDate.getDate() +
+    link.download = "octagon-hilltops_" + currentDate.getDate() +
                     "-" + (currentDate.getMonth() + 1) +
                     "-" + currentDate.getFullYear() +
                     "_" + currentDate.getMilliseconds() +
@@ -104,20 +126,32 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 
 ## Description
 
-This is a template to use for PaperJS.
+A grid of octagons with a shrinking set octagons within each one.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```javascript
-
+for (var y_pos = 1; y_pos < 1000; y_pos += 150) {
+   for (var x_pos = 1; x_pos < 1000; x_pos += 150) {
+      for (var i = 1; i < 10; i+= 1) {
+         new Path.RegularPolygon({
+            center: [x_pos + (i * 2), y_pos + (i * 2)],
+            sides: 8,
+            radius: 30 * (i / 4),
+            strokeColor: 'black',
+            strokeWidth: 2
+         });
+      }
+   }
+}
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+This was fun. Felt more in line with the stuff I create in p5JS.

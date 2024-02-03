@@ -1,7 +1,53 @@
 +++
 title = "Simplicity Grid"
-weight = 11
+weight = 13
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Library -->
 <script type = "text/javascript" src = "../../scripts/libs/p5js/p5.min.js"></script>
@@ -119,9 +165,10 @@ function exportSVG() {
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
 
-<button onclick="fuseTrigger()"> Regenerate </button>
-
-<button onclick="exportSVG()"> Save SVG </button>
+<div id="dom-gui">
+    <button onclick="fuseTrigger()"> Regenerate </button>
+    <button onclick="exportSVG()"> Save SVG </button>
+</div>
 
 <hr>
 
@@ -198,6 +245,8 @@ function makeDiamond(x_Position, y_Position, scale) {
     endShape(CLOSE);
 }
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 I used this one with POSCA Markers. Turned out pretty neat!

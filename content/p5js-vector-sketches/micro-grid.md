@@ -1,7 +1,53 @@
 +++
 title = "Micro Grid"
-weight = 5
+weight = 7
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Library -->
 <script type = "text/javascript" src = "../../scripts/libs/p5js/p5.min.js"></script>
@@ -13,46 +59,56 @@ weight = 5
 /*
  * Title:   Micro Grid
  * Author:  hamzberg
- * Version: 0.1
+ * Version: 0.2
  * Date:    6 January 2024
  *
  * Description:
  *   -
  */
 
+let fuse = true;
+
 function setup() {
 
     let c = createCanvas(600, 300, SVG);
     c.parent('processing-canvas');
 
-    for(let y_pos = 0; y_pos < height; y_pos += 20) {
+    noFill();
 
-        for(let x_pos = 0; x_pos < width; x_pos += 20) {
+}
 
-            circle(x_pos, y_pos, randomGaussian(1, 5));
+function draw() {
 
-            square(x_pos + 10, y_pos + 10, randomGaussian(1, 5));
+    if(fuse == true){
+
+        for(let y_pos = 0; y_pos < height; y_pos += 20) {
+
+            for(let x_pos = 0; x_pos < width; x_pos += 20) {
+
+                circle(x_pos, y_pos, randomGaussian(1, 5));
+
+                square(x_pos + 10, y_pos + 10, randomGaussian(1, 5));
+
+            }
 
         }
 
+        fuse = false;
     }
 
 }
 
+function fuseTrigger() {
 
-function draw() {
-
-    exportSVG();
+    clear();
+    fuse = true;
 
 }
 
 function exportSVG() {
 
-    if (keyCode === LEFT_ARROW) {
-        save("micro-grid_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-        print("SVG Downloaded");
-        noLoop();
-    }
+    save("micro-grid_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    print("SVG Downloaded");
 
 }
 
@@ -60,6 +116,11 @@ function exportSVG() {
 
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
+
+<div id="dom-gui">
+    <button onclick="fuseTrigger()"> Regenerate </button>
+    <button onclick="exportSVG()"> Save SVG </button>
+</div>
 
 <hr>
 
@@ -69,7 +130,7 @@ Randomly sized circles and squares dot the canvas in a grid pattern.
 
 ## Instructions
 
-Refresh the page to regenerate the sketch. Press the Left Arrow key to save an SVG.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
@@ -81,6 +142,8 @@ Refresh the page to regenerate the sketch. Press the Left Arrow key to save an S
         }
     }
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 I've never played with `randomGaussian()` before. Not sure if it really added anything special.

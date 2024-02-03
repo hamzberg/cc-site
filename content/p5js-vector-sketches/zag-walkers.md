@@ -1,7 +1,53 @@
 +++
 title = "Zag Walkers"
-weight = 9
+weight = 11
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Library -->
 <script type = "text/javascript" src = "../../scripts/libs/p5js/p5.min.js"></script>
@@ -82,14 +128,17 @@ function exportSVG() {
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
 
-<button onclick="fuseTrigger()"> Regenerate </button>
+<div id="dom-gui">
+    <button onclick="fuseTrigger()"> Regenerate </button>
+    <button onclick="exportSVG()"> Save SVG </button>
+</div>
 
-<button onclick="exportSVG()"> Save SVG </button>
+<br>
 
 Select Mode:
 <input type="radio" id="radio_Random" name="select_Pos" value="Random">
     <label for="random"> Random </label>
-<input type="radio" id="radio_Center" name="select_Pos" value="Center">
+<input type="radio" id="radio_Center" name="select_Pos" value="Center" checked="checked">
     <label for="center"> Center </label>
 
 <hr>
@@ -100,7 +149,7 @@ Generates several walkers with their left or right turn based on random polarity
 
 ## Instructions
 
-Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG. Select between "Random" and "Center" modes for different effects.
 
 ## Code Sample
 
@@ -139,6 +188,8 @@ function drawLine() {
 }
 
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 Wanted to play with the HTML DOM more and picked an easy sketch idea to make it.

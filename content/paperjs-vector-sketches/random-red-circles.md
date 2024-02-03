@@ -1,6 +1,6 @@
 +++
-title = "PaperJS Vector Sketch"
-weight = 1
+title = "Random Red Circles"
+weight = 6
 +++
 
 <style>
@@ -56,14 +56,34 @@ button:active {
 <script type = "text/paperscript" canvas = "paper-canvas">
 
 /*
- * Title:   PaperJS Sketch No. #
+ * Title:   Random Red Circles
  * Author:  hamzberg
- * Version: 0.0
- * Date:    1 January 2024
+ * Version: 0.1
+ * Date:    17 September 2023
  *
  * Description:
  *   -
  */
+
+// Change Canvas Size -- W -- H
+view.viewSize = new Size(400, 400);
+
+console.log("The view is " + view.size);
+
+var circle = new Path.Circle(new Point(view.size.width / 2, view.size.width / 2), 50);
+
+console.log("The center of view is " + (view.size.width / 2) + " and " + (view.size.width / 2));
+
+circle.fillColor = "red";
+
+var cir_Sym = new Symbol(circle);
+
+for (var i = 0; i < 20; i += 1) {
+
+    var position = view.size * Point.random();
+    var placed = cir_Sym.place(position);
+
+}
 
 // Function to export SVG
 function exportSVG() {
@@ -79,7 +99,7 @@ function exportSVG() {
     // Create a download link and trigger the click event:
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = "temp_" + currentDate.getDate() +
+    link.download = "random-red-circles_" + currentDate.getDate() +
                     "-" + (currentDate.getMonth() + 1) +
                     "-" + currentDate.getFullYear() +
                     "_" + currentDate.getMilliseconds() +
@@ -104,16 +124,33 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 
 ## Description
 
-This is a template to use for PaperJS.
+Random red circles are placed within the canvas.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```javascript
+view.viewSize = new Size(400, 400);
 
+console.log("The view is " + view.size);
+
+var circle = new Path.Circle(new Point(view.size.width / 2, view.size.width / 2), 50);
+
+console.log("The center of view is " + (view.size.width / 2) + " and " + (view.size.width / 2));
+
+circle.fillColor = "red";
+
+var cir_Sym = new Symbol(circle);
+
+for (var i = 0; i < 20; i += 1) {
+
+    var position = view.size * Point.random();
+    var placed = cir_Sym.place(position);
+
+}
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).

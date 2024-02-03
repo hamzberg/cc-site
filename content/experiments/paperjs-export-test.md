@@ -1,7 +1,53 @@
 +++
 title = "PaperJS Export Test"
-weight = 5
+weight = 3
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Paper.js library -->
 <script type = "text/javascript" src = "../../scripts/libs/paperjs/paper-full.min.js"></script>
@@ -66,7 +112,9 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 <!-- Insert the Sketch -->
 <canvas id="paper-canvas" resize style="width:100%;"></canvas>
 
-<button id="exportButton"> Save SVG </button>
+<div id="dom-gui">
+    <button id="exportButton"> Save SVG </button>
+</div>
 
 <hr>
 
@@ -115,6 +163,7 @@ function exportSVG() {
 
 document.getElementById('exportButton').addEventListener('click', exportSVG);
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 

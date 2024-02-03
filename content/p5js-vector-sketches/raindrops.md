@@ -1,7 +1,53 @@
 +++
 title = "Raindrops"
-weight = 8
+weight = 10
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Library -->
 <script type = "text/javascript" src = "../../scripts/libs/p5js/p5.min.js"></script>
@@ -13,7 +59,7 @@ weight = 8
 /*
  * Title:   Raindrops
  * Author:  hamzberg
- * Version: 0.1
+ * Version: 0.2
  * Date:    15 January 2024
  *
  * Notes:
@@ -42,16 +88,13 @@ function draw() {
                     color(154, 199, 217) // Light Blue
                 ]));
 
-            dropMaker(random(0, width), (Math.log(i) * 100), .5);
+            dropMaker(random(0, width - 25), (Math.log(i) * 100), .5);
 
         }
 
         fuse = false;
 
     }
-
-    exportSVG();
-    //GUI();
 
 }
 
@@ -76,25 +119,17 @@ function dropMaker(x_Pos, y_Pos, scale) {
 
 }
 
-function exportSVG() {
+function fuseTrigger() {
 
-    if (keyCode === LEFT_ARROW) {
-        save("raindrops_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-        print("SVG Downloaded");
-        noLoop();
-    }
+    clear();
+    fuse = true;
 
 }
 
-function GUI() {
+function exportSVG() {
 
-    let gen = createButton('Generate');
-    gen.position(400, 400);
-
-    gen.mousePressed(() => {
-        clear();
-        fuse = true;
-    });
+    save("raindrops_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    print("SVG Downloaded");
 
 }
 
@@ -102,6 +137,11 @@ function GUI() {
 
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
+
+<div id="dom-gui">
+    <button onclick="fuseTrigger()"> Regenerate </button>
+    <button onclick="exportSVG()"> Save SVG </button>
+</div>
 
 <hr>
 
@@ -111,7 +151,7 @@ Raindrops are placed randomly based on the log of the first for loop times 100.
 
 ## Instructions
 
-Refresh the page to regenerate the sketch. Press the Left Arrow key to save an SVG.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
@@ -126,7 +166,7 @@ function draw() {
     if(fuse == true) {
         for(let i = 0; i < 100; i += 1) {
             fill(random([color(63, 137, 166), color(154, 199, 217)]));
-            dropMaker(random(0, width), (Math.log(i) * 100), .5);
+            dropMaker(random(0, width - 25), (Math.log(i) * 100), .5);
         }
         fuse = false;
     }
@@ -150,7 +190,8 @@ function dropMaker(x_Pos, y_Pos, scale) {
     endShape(CLOSE);
 }
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-Wanted to play with bezier curves. There's a weird vertex that isn't visible on every raindrop that causes a line to appear on the axidraw, but it looks cool.
+I wanted to play with bezier curves. There's a weird vertex that isn't visible on every raindrop but causes a line to appear on the axidraw. Still looks cool.

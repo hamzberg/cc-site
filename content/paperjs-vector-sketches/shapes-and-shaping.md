@@ -1,6 +1,6 @@
 +++
-title = "PaperJS Vector Sketch"
-weight = 1
+title = "Shapes and Shaping"
+weight = 4
 +++
 
 <style>
@@ -56,14 +56,42 @@ button:active {
 <script type = "text/paperscript" canvas = "paper-canvas">
 
 /*
- * Title:   PaperJS Sketch No. #
+ * Title:   Shapes and Shaping
  * Author:  hamzberg
- * Version: 0.0
- * Date:    1 January 2024
+ * Version: 0.1
+ * Date:    12 September 2023
  *
  * Description:
  *   -
  */
+
+// Declares path and then inserts a point at a specific point
+var path_A = new Path();
+
+path_A.strokeColor = 'black';
+path_A.add(new Point(0, 0), new Point(100, 50));
+
+path_A.insert(1, new Point(30, 40));
+
+
+// Path Smoothing and closing
+
+var path_B = new Path();
+
+path_B.strokeColor = 'black';
+path_B.add(new Point(130, 75));
+path_B.add(new Point(130, 25));
+path_B.add(new Point(180, 25));
+path_B.add(new Point(180, 75));
+path_B.closed = true;
+
+path_B.fullySelected = true;
+
+var copy_Path_B = path_B.clone();
+copy_Path_B.selected = true;
+copy_Path_B.position.x += 100;
+
+copy_Path_B.smooth();
 
 // Function to export SVG
 function exportSVG() {
@@ -79,7 +107,7 @@ function exportSVG() {
     // Create a download link and trigger the click event:
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = "temp_" + currentDate.getDate() +
+    link.download = "shapes-and-shaping_" + currentDate.getDate() +
                     "-" + (currentDate.getMonth() + 1) +
                     "-" + currentDate.getFullYear() +
                     "_" + currentDate.getMilliseconds() +
@@ -104,20 +132,43 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 
 ## Description
 
-This is a template to use for PaperJS.
+Showcase of PaperJS features, such as the ```.selected``` option and using ```.add``` to insert another point on a path.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Save SVG" button to save the sketch as an SVG.
 
-## Code Sample
+## Code Source
 
 ```javascript
+var path_A = new Path();
 
+path_A.strokeColor = 'black';
+path_A.add(new Point(0, 0), new Point(100, 50));
+
+path_A.insert(1, new Point(30, 40));
+
+var path_B = new Path();
+
+path_B.strokeColor = 'black';
+path_B.add(new Point(130, 75));
+path_B.add(new Point(130, 25));
+path_B.add(new Point(180, 25));
+path_B.add(new Point(180, 75));
+path_B.closed = true;
+
+path_B.fullySelected = true;
+
+var copy_Path_B = path_B.clone();
+copy_Path_B.selected = true;
+copy_Path_B.position.x += 100;
+
+copy_Path_B.smooth();
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+The ```.selected``` is so odd to me. It really reminds me of vector programs, which isn't surprising knowing this library's origins, but still.
+

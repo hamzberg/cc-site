@@ -1,6 +1,6 @@
 +++
-title = "PaperJS Vector Sketch"
-weight = 1
+title = "Layered Circles"
+weight = 5
 +++
 
 <style>
@@ -56,14 +56,28 @@ button:active {
 <script type = "text/paperscript" canvas = "paper-canvas">
 
 /*
- * Title:   PaperJS Sketch No. #
+ * Title:   Layered Sketches
  * Author:  hamzberg
- * Version: 0.0
- * Date:    1 January 2024
+ * Version: 0.1
+ * Date:    08 September 2023
  *
  * Description:
  *   -
  */
+
+var circle_A = new Path.Circle(new Point(80, 50), 35);
+
+var circle_B = circle_A.clone();
+
+circle_A.fillColor = 'red';
+
+circle_B.fillColor = 'blue';
+
+for (var i = 0; i < 10; i += 1){
+
+    circle_A.position.x += i;
+
+}
 
 // Function to export SVG
 function exportSVG() {
@@ -79,7 +93,7 @@ function exportSVG() {
     // Create a download link and trigger the click event:
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = "temp_" + currentDate.getDate() +
+    link.download = "layered-circles_" + currentDate.getDate() +
                     "-" + (currentDate.getMonth() + 1) +
                     "-" + currentDate.getFullYear() +
                     "_" + currentDate.getMilliseconds() +
@@ -104,20 +118,30 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 
 ## Description
 
-This is a template to use for PaperJS.
+A blue circle is layered on top of a red circle.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Save SVG" button to save the sketch as an SVG.
 
-## Code Sample
+## Code Source
 
 ```javascript
+var circle_A = new Path.Circle(new Point(80, 50), 35);
 
+var circle_B = circle_A.clone();
+
+circle_A.fillColor = 'red';
+
+circle_B.fillColor = 'blue';
+
+for (var i = 0; i < 10; i += 1){
+    circle_A.position.x += i;
+}
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+More so playing with `.clone`. Nothing remarkable here.

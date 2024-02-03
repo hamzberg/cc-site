@@ -1,5 +1,5 @@
 +++
-title = "p5JS Vector Sketch"
+title = "p5JS DOM Test"
 weight = 1
 +++
 
@@ -60,7 +60,7 @@ button:active {
  * Title:   Processing Sketch No. #
  * Author:  hamzberg
  * Version: 0.0
- * Date:    11 December 2024
+ * Date:    15 January 2024
  *
  * Notes:
  *   -
@@ -75,9 +75,17 @@ function setup() {
 
 function draw() {
 
+    //clear();
+
+    fill('red');
+    noStroke();
+
     if(fuse == true){
 
+        rect(random(0, width), random(0, height), 100, 100);
+
         fuse = false;
+
     }
 
 }
@@ -91,7 +99,7 @@ function fuseTrigger() {
 
 function exportSVG() {
 
-    save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    save("p5js-dom-test_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
     print("SVG Downloaded");
 
 }
@@ -110,20 +118,54 @@ function exportSVG() {
 
 ## Description
 
-This page contains code to be used with starting a new creative code project.
+This experiment uses the HTML DOM to interact with the sketch.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
-```javascript
+```HTML
+<script>
 
+let fuse = true;
+
+function setup() {
+    let c = createCanvas(600, 300, SVG);
+    c.parent('processing-canvas');
+}
+
+function draw() {
+    fill('red');
+    noStroke();
+
+    if(fuse == true){
+        rect(random(0, width), random(0, height), 100, 100);
+        fuse = false;
+    }
+}
+
+function fuseTrigger() {
+    clear();
+    fuse = true;
+}
+
+function exportSVG() {
+    save("p5js-dom-test_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    print("SVG Downloaded");
+}
+
+</script>
+
+<button onclick="fuseTrigger()"> Regenerate </button>
+
+<button onclick="exportSVG()"> Save SVG </button>
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+I thought I had to use p5.js' [Instance Mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode) in order to get this to work
+but then realized that I could just use the HTML DOM since the sketch is in "Global Mode."

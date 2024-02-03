@@ -1,6 +1,6 @@
 +++
-title = "PaperJS Vector Sketch"
-weight = 1
+title = "Hello Rectangle!"
+weight = 2
 +++
 
 <style>
@@ -56,14 +56,22 @@ button:active {
 <script type = "text/paperscript" canvas = "paper-canvas">
 
 /*
- * Title:   PaperJS Sketch No. #
+ * Title:   Hello Rectangle!
  * Author:  hamzberg
- * Version: 0.0
- * Date:    1 January 2024
+ * Version: 0.1
+ * Date:    08 September 2023
  *
  * Description:
  *   -
  */
+
+var rect_A = new Shape.Rectangle(10, 10, 120, 40);
+rect_A.strokeColor = 'black';
+rect_A.fillColor = 'black';
+
+var rect_B = new Shape.Rectangle(200, 10, 40, 120);
+rect_B.strokeColor = 'red';
+rect_B.fillColor = 'red';
 
 // Function to export SVG
 function exportSVG() {
@@ -79,7 +87,7 @@ function exportSVG() {
     // Create a download link and trigger the click event:
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    link.download = "temp_" + currentDate.getDate() +
+    link.download = "hello-rectangle_" + currentDate.getDate() +
                     "-" + (currentDate.getMonth() + 1) +
                     "-" + currentDate.getFullYear() +
                     "_" + currentDate.getMilliseconds() +
@@ -104,20 +112,27 @@ document.getElementById('exportButton').addEventListener('click', exportSVG);
 
 ## Description
 
-This is a template to use for PaperJS.
+A vertical black rectangle and horizontal red rectangle rest on the canvas, again.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```javascript
+var rect_A = new Shape.Rectangle(10, 10, 120, 40);
+rect_A.strokeColor = 'black';
+rect_A.fillColor = 'black';
 
+var rect_B = new Shape.Rectangle(200, 10, 40, 120);
+rect_B.strokeColor = 'red';
+rect_B.fillColor = 'red';
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+I always have to create at least one rectangle in a programming language to give myself something to look forward to.
+

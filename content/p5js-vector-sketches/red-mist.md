@@ -1,6 +1,6 @@
 +++
 title = "Red Mist"
-weight = 2
+weight = 3
 +++
 
 <!-- Load the Library -->
@@ -12,7 +12,7 @@ weight = 2
 /*
  * Title:   Red Mist
  * Author:  hamzberg
- * Version: 0.1
+ * Version: 0.2
  * Date:    22 December 2023
  *
  * Notes:
@@ -63,7 +63,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(255);
 
   let dot_one = new dot(240, 240, 50);
   dot_one.blue_mode();
@@ -134,6 +134,8 @@ function draw() {
   }
 }
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 This helped me understand Object Oriented Programming better.

@@ -1,7 +1,53 @@
 +++
 title = "Eye Spiral"
-weight = 7
+weight = 9
 +++
+
+<style>
+
+#dom-gui {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+button {
+
+    padding: 1rem;
+    cursor: pointer;
+
+    background: #A9FDAC;
+
+    border-radius: .5rem;
+
+    outline: none;
+    border: none;
+
+    transition-duration: 0.2s;
+
+    width: 100%;
+
+    box-shadow: 0 4px #32A287;
+
+}
+
+button:hover {
+
+    background: #DFFFC7;
+
+}
+
+button:active {
+
+    background: #32A287;
+
+    transform: translateY(4px);
+
+}
+
+</style>
 
 <!-- Load the Library -->
 <script type = "text/javascript" src = "../../scripts/libs/p5js/p5.min.js"></script>
@@ -13,36 +59,21 @@ weight = 7
 /*
  * Title:   Eye Spiral
  * Author:  hamzberg
- * Version: 0.1
+ * Version: 0.2
  * Date:    7 January 2024
  *
  * Notes:
  *   -
  */
 
+let fuse = true;
+
 function setup() {
     let c = createCanvas(700, 700, SVG);
     c.parent('processing-canvas');
 
-    background(1, 35, 64);
-
     noFill();
     strokeWeight(1);
-
-    for(let i = 0; i < 100; i += 1) {
-
-        stroke(
-            random([
-                color(242, 227, 179), // light
-                color(159, 145, 119), // medium
-                color(122, 84, 71)    // dark
-                ]));
-        push();
-        translate(width / 2, height / 2);
-        rotate(1 + (i * 5));
-        makeSplash();
-        pop();
-    }
 
 }
 
@@ -67,17 +98,32 @@ function makeSplash() {
 
 function draw() {
 
-    exportSVG();
+    if(fuse == true){
+
+        for(let i = 0; i < 100; i += 1) {
+
+            stroke(
+                random([
+                    color(242, 227, 179), // light
+                    color(159, 145, 119), // medium
+                    color(122, 84, 71)    // dark
+                    ]));
+            push();
+            translate(width / 2, height / 2);
+            rotate(1 + (i * 5));
+            makeSplash();
+            pop();
+        }
+
+        fuse = false;
+    }
 
 }
 
 function exportSVG() {
 
-    if (keyCode === LEFT_ARROW) {
-        save("eye-spiral_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
-        print("SVG Downloaded");
-        noLoop();
-    }
+    save("eye-spiral_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    print("SVG Downloaded");
 
 }
 
@@ -85,6 +131,10 @@ function exportSVG() {
 
 <!-- Insert the Sketch -->
 <div id="processing-canvas"></div>
+
+<div id="dom-gui">
+    <button onclick="exportSVG()"> Save SVG </button>
+</div>
 
 <hr>
 
@@ -94,7 +144,7 @@ A blob shape is cloned and rotated around the center of the canvas, creating a w
 
 ## Instructions
 
-"Sorry nothing."
+Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
@@ -141,6 +191,8 @@ function makeSplash() {
 
 }
 ```
+The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
+
 ## Thoughts
 
 I was looking at some other pen-plot artists and got inspired to really playing with lines. Turned out pretty well.
