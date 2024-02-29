@@ -1,6 +1,6 @@
 +++
-title = "p5JS Vector Sketch"
-weight = 1
+title = "Deluge"
+weight = 14
 +++
 
 <!-- Load the Styling -->
@@ -14,10 +14,10 @@ weight = 1
 <script>
 
 /*
- * Title:   Processing Sketch No. #
+ * Title:   Deluge
  * Author:  hamzberg
  * Version: 0.0
- * Date:    11 December 2024
+ * Date:    28 February 2024
  *
  * Notes:
  *   -
@@ -26,18 +26,57 @@ weight = 1
 let fuse = true;
 
 function setup() {
-    let c = createCanvas(600, 300, SVG);
+    let c = createCanvas(600, 400, SVG);
     c.parent('processing-canvas');
+
+    noFill();
+
 }
 
 function draw() {
 
     if(fuse == true){
 
+        let x_Position = 0;
+        let y_Position = 0;
+        let scale = 0;
+
+        //line(0, height - 100, width, height - 100);
+
+        for(let i = 0; i < 250; i += 1){
+
+            x_Position = random(-50, width + 50);
+            y_Position = random(-50, height + 50);
+            scale = random(0, 50);
+
+            if (y_Position < height) {
+
+                line(x_Position, y_Position,
+                     x_Position - (50 - scale), y_Position - (50 - scale));
+
+            }
+
+            if (y_Position > height - 75) {
+
+                if (i % 2 == 0) {
+
+                arc(x_Position, y_Position, 30, 10,
+                    PI + HALF_PI + (QUARTER_PI * 1.5),
+                    PI*2 + HALF_PI * 2 + (QUARTER_PI / 2));
+
+                }
+
+            }
+
+        }
+
         fuse = false;
+
     }
 
 }
+
+
 
 function fuseTrigger() {
 
