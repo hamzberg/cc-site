@@ -16,7 +16,7 @@ weight = 14
 /*
  * Title:   Deluge
  * Author:  hamzberg
- * Version: 0.0
+ * Version: 0.1
  * Date:    28 February 2024
  *
  * Notes:
@@ -76,8 +76,6 @@ function draw() {
 
 }
 
-
-
 function fuseTrigger() {
 
     clear();
@@ -87,7 +85,7 @@ function fuseTrigger() {
 
 function exportSVG() {
 
-    save("temp_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
+    save("deluge_" + day() + "-" + month() + "-" + year() + "_" + millis() + ".svg");
     print("SVG Downloaded");
 
 }
@@ -106,20 +104,47 @@ function exportSVG() {
 
 ## Description
 
-This page contains code to be used with starting a new creative code project.
+Generates a deluge-like effect.
 
 ## Instructions
 
-Copy the contents of this Markdown file to a new sketch. Remember to change the SVG download file name.
+Press the "Regenerate" button to regenerate the sketch. Press the "Save SVG" button to save the sketch as an SVG.
 
 ## Code Sample
 
 ```javascript
-
+function setup() {
+    let c = createCanvas(600, 400, SVG);
+    c.parent('processing-canvas');
+    noFill();
+}
+function draw() {
+    if(fuse == true){
+        let x_Position = 0;
+        let y_Position = 0;
+        let scale = 0;
+        for(let i = 0; i < 250; i += 1){
+            x_Position = random(-50, width + 50);
+            y_Position = random(-50, height + 50);
+            scale = random(0, 50);
+            if (y_Position < height) {
+                line(x_Position, y_Position,
+                     x_Position - (50 - scale), y_Position - (50 - scale));
+            }
+            if (y_Position > height - 75) {
+                if (i % 2 == 0) {
+                arc(x_Position, y_Position, 30, 10,
+                    PI + HALF_PI + (QUARTER_PI * 1.5),
+                    PI*2 + HALF_PI * 2 + (QUARTER_PI / 2));
+                }
+            }
+        }
+    }
+}
 ```
 
 The full script for this sketch can be found on [Github](https://github.com/hamzberg/cc-site).
 
 ## Thoughts
 
-"Head empty."
+Works pretty well for rain.
